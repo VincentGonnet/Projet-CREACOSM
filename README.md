@@ -32,12 +32,27 @@ docker compose up -d --build
 Les deux sous-modules et la base de donnée seront ainsi initialisés et prêts à l'emploi.
 Le site sera disponible sur le port [A DETERMINER] de votre machine.
 
+Pour voir le flux des logs d'un conteneur, faites :
+```bash
+docker compose logs -f nomduconteneur
+```
+Par exemple, pour voir les logs du backend: 
+```bash
+docker compose logs -f backend
+```
+
 ### Base de données
 La base de données inclue dans le Docker sera initialisée et remplie automatiquement au lancement du backend. Elle n'est pas accessible depuis l'extérieur du conteneur et aucune modification manuelle ne doit y être apportée.
 
 ## Utilisation
 
 ### Routes API
+#### Commencer la partie
+- POST : `/start-game`
+    - Le header doit contenir : 
+        - `'Content-Type': 'application/json'`
+    - Le body doit contenir :
+        - `'code': '(code)'` avec (code) le numéro de partie rentré par les joueurs
 
 ## Crédits
 
