@@ -1,0 +1,3 @@
+[submodule "CREACOSM-Backend"]
+	path = CREACOSM-Backend
+	url = https://github.com/VincentGonnet/CREACOSM-Backend.git
