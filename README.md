@@ -124,6 +124,12 @@ La base de données inclue dans le Docker sera initialisée et remplie automatiq
             }
         ]
         ```
+-   POST: `/try-storage` - essaie de mettre un ingrédient dans un stockage pour validation finale
+    -   Le header doit contenir `'Content-Type': 'application/json'`
+    -   Le body doit contenir :
+        -   `'ingredientId': '(id)'` avec (id) l'id de l'ingrédient
+        -   `'storageId': '(id)'` avec (id) l'id du stockage
+    -   Retourne `true` ou `false` selon si l'ingrédient est à sa place ou non
 
 ## Crédits
 
