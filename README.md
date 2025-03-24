@@ -168,6 +168,15 @@ La base de données inclue dans le Docker sera initialisée et remplie automatiq
         }
         ```
 
+#### Finir la partie
+
+-   POST : `/end-game` - termine la partie du groupe donné
+    -   Le header doit contenir :
+        -   `'Content-Type': 'application/json'`
+    -   Le body doit contenir :
+        -   `'code': '(code)'` avec (code) le numéro de partie rentré par les joueurs
+    -   Retourne le code 200 si tout va bien
+
 ## Crédits
 
 Ceci est un projet universitaire, développé pendant la L3 MIAGE à l'Université d'Orléans.
