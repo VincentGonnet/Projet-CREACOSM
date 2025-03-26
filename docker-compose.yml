@@ -1,16 +1,31 @@
 services:
-  db:
-    image: postgres:latest
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: creacosm
+    db:
+        image: postgres:latest
+        environment:
+            POSTGRES_USER: user
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: creacosm
 
-  backend:
-    build: ./CREACOSM-Backend
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
-    environment:
-      DATABASE_URL: postgres://user:password@db:5432/creacosm
+    backend:
+        build: ./CREACOSM-Backend
+        ports:
+            - "3001:3001" # port de notre backend, à ne changer que s'il y a conflit avec d'autre ports
+        depends_on:
+            - db
+        environment:
+            DATABASE_URL: postgres://user:password@db:5432/creacosm
+            PORT_DE_NOTRE_BACKEND: 3001 # à ne changer que s'il y a conflit avec d'autre ports
+            BAAS_URL: http://localhost:3000 # TODO: change
+            ORDRE_PASSAGE: x # TODO: change
+            PASSWORD: x # TODO: change
+
+    frontend:
+        build:
+            context: ./CREACOSM-Frontend
+            args:
+                BACKEND_PORT: 3001 # port de notre backend, à ne changer que s'il y a conflit avec d'autre ports
+        depends_on:
+            - backend
+
+        ports:
+            - "8080:4200" # TODO: change to the desired port

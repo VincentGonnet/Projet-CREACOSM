@@ -1,3 +1,6 @@
 [submodule "CREACOSM-Backend"]
 	path = CREACOSM-Backend
 	url = https://github.com/VincentGonnet/CREACOSM-Backend.git
+[submodule "CREACOSM-Frontend"]
+	path = CREACOSM-Frontend
+	url = https://github.com/hild365/CREACOSM-Frontend
